@@ -4,8 +4,10 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: "https://gabriel-3191997.github.io/Raphaella",
-      // frontend URL here
+      origin: [
+        "https://gabriel-3191997.github.io/Raphaella",
+        "http://localhost:5173",
+      ], // frontend URL here
       // origin: [process.env.FRONTEND_URL || "http://localhost:5173"], // frontend URL here
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     },
