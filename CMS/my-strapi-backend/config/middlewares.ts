@@ -4,8 +4,10 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
+      enabled: true,
       origin: [
-        "https://gabriel-3191997.github.io/Raphaella",
+        "https://gabriel-3191997.github.io",
+        "https://raphaella-gabriel-3191997s-projects.vercel.app",
         "http://localhost:5173",
       ], // frontend URL here
       // origin: [process.env.FRONTEND_URL || "http://localhost:5173"], // frontend URL here
