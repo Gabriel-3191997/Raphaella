@@ -34,8 +34,7 @@ export default factories.createCoreController(
           conflictMessage =
             "A submission has already been made with this name.";
         } else if (entry.phone === phone) {
-          conflictMessage =
-            "This phone number has already been used.";
+          conflictMessage = "This phone number has already been used.";
         }
       }
 
@@ -60,8 +59,12 @@ export default factories.createCoreController(
 
       // 2. Send email to admin
       await strapi.plugins["email"].services.email.send({
-        to: [process.env.ADMIN_EMAIL || "info@raphaellalewisfoundation.org", "astainyharris1@gmail.com"],
+        to: [
+          process.env.ADMIN_EMAIL || "info@raphaellalewisfoundation.org",
+          "astainyharris1@gmail.com",
+        ],
         subject: "📝 New Volunteer Form Submission",
+        text: "New Volunteer Submission",
         html: `
     <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
       <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 30px;">

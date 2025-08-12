@@ -50,6 +50,7 @@ export default factories.createCoreController(
         await strapi.plugins["email"].services.email.send({
           to: email,
           subject: "Welcome to Raphaella Lewis Foundation – You’re Subscribed!",
+          text: `Hi there,\n\nThank you for subscribing to our updates. We’re excited to have you onboard.\n\nExpect to receive updates about our programs, events, and latest news straight to your inbox.\n\nWarm regards,\nRaphaella Lewis Foundation Team`,
           html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: auto; background: #f9f9f9; padding: 20px; border-radius: 8px;">
           <h2 style="color: #024a71;">Welcome to Raphaella Lewis Foundation!</h2>
@@ -66,7 +67,10 @@ export default factories.createCoreController(
         // send notification to admin
         try {
           await strapi.plugins["email"].services.email.send({
-            to: [process.env.ADMIN_EMAIL || "info@raphaellalewisfoundation.org", "astainyharris1@gmail.com"],
+            to: [
+              process.env.ADMIN_EMAIL || "info@raphaellalewisfoundation.org",
+              "astainyharris1@gmail.com",
+            ],
             subject: "📬 New Subscriber Notification",
             text: `You have a new subscriber.\n\nEmail: ${email}\nIP Address: ${ip}\n\nThis message was sent automatically.`,
             html: `
